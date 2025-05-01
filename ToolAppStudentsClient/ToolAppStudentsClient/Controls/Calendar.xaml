@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class=" ToolAppStudentsClient.Controls.Calendar"
+             xmlns:controls="clr-namespace:ToolAppStudentsClient.Controls">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="calendarGridHeadButtons"
+                  InputTransparent="True"
+                  CascadeInputTransparent="False">
+                <controls:TextCalendarCell x:Name="monthText"
+                                           Grid.Row="0"
+                                           Grid.RowSpan="2"
+                                           CellColor="{StaticResource EerieBlack}"
+                                           TextColor="White"/>
+            </Grid>
+            
+            <Grid x:Name="calendarGridHead"
+                  Grid.Row="0"
+                  Grid.Column="1">
+            </Grid>
+        </Grid>
+        <ScrollView Grid.Row="1"
+                    Grid.Column="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid x:Name="hourGrid"
+                      InputTransparent="True"
+                      CascadeInputTransparent="False">
+                    <Label Grid.Row="0" Text="00-01" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="1" Text="01-02" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="2" Text="02-03" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="3" Text="03-04" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="4" Text="04-05" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="5" Text="05-06" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="6" Text="06-07" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="7" Text="07-08" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="8" Text="08-09" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="9" Text="09-10" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="10" Text="10-11" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="11" Text="11-12" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="12" Text="12-13" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="13" Text="13-14" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="14" Text="14-15" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="15" Text="15-16" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="16" Text="16-17" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="17" Text="17-18" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="18" Text="18-19" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="19" Text="19-20" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="20" Text="20-21" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="21" Text="21-22" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="22" Text="22-23" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                    <Label Grid.Row="23" Text="23-00" Background="{StaticResource EerieBlack}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White"/>
+                </Grid>
+
+                <Grid x:Name="calendarGridBodyEmpty"
+                      Grid.Row="0"
+                      Grid.Column="1"
+                      InputTransparent="True"
+                      CascadeInputTransparent="False">
+                </Grid>
+              
+                <Grid x:Name="calendarGridBody"
+                      Grid.Row="0"
+                      Grid.Column="1"
+                      InputTransparent="True"
+                      CascadeInputTransparent="False">
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentView>

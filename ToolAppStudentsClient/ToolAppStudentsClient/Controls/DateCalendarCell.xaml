@@ -1,0 +1,14 @@
+﻿<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class=" ToolAppStudentsClient.Controls.DateCalendarCell">
+    <Button Text="{Binding Date, StringFormat='{}{0:dd}' , Mode=OneWay}"
+            Background="{Binding CellColor, Mode=TwoWay}"
+            TextColor="White"
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill"
+            Padding="0"
+            Margin="0"
+            MinimumHeightRequest="0"
+            CornerRadius="0">
+    </Button>
+</ContentView>

@@ -1,0 +1,143 @@
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               x:Class="ToolAppStudentsClient.Popups.TaskPopup"
+               xmlns:viewmodel="clr-namespace:ToolAppStudentsClient.ViewModel"
+               xmlns:models="clr-namespace:ToolAppStudentsClient.Models"
+               Color="{StaticResource EerieBlack}"
+               x:Name="TaskPopupPage"
+               Size="285,500">
+
+    <toolkit:Popup.BindingContext>
+        <viewmodel:TaskPopupViewModel/>
+    </toolkit:Popup.BindingContext>
+
+    <Grid>
+        <VerticalStackLayout Padding="20"
+                             Spacing="10"
+                             Background="{StaticResource EerieBlack}">
+            <Entry Placeholder="Title"
+                   TextColor="White" 
+                   FontSize="22"
+                   Text="{Binding TaskDto.Name}"/>
+            <VerticalStackLayout>
+                <DatePicker TextColor="White"
+                            Background="{StaticResource EerieBlack}" 
+                            Date="{Binding TaskDto.Day}"
+                            HeightRequest="50">
+                    <DatePicker.Format>dd.MM.yyyy</DatePicker.Format>
+                </DatePicker>
+                <TimePicker TextColor="White"
+                                Background="{StaticResource EerieBlack}"
+                                Time="{Binding TaskDto.Start}">
+                    <TimePicker.Format>hh:mm</TimePicker.Format>
+                </TimePicker>
+                <TimePicker TextColor="White"
+                                Background="{StaticResource EerieBlack}"
+                                Time="{Binding TaskDto.End}">
+                    <TimePicker.Format>hh:mm</TimePicker.Format>
+                </TimePicker>
+            </VerticalStackLayout>
+            <Label Text="Select color:" 
+                   TextColor="White" 
+                   Background="{StaticResource EerieBlack}"/>
+            <HorizontalStackLayout>
+                <Button IsVisible="{Binding TaskColorButtons[0].IsVisible}"
+                        BackgroundColor="{Binding TaskColorButtons[0].Color}" 
+                        CornerRadius="15"
+                        MinimumHeightRequest="10"
+                        MinimumWidthRequest="10"
+                        HeightRequest="30"
+                        WidthRequest="30"
+                        CommandParameter="{Binding TaskColorButtons[0]}" 
+                        Command="{Binding ColorButtonClickedCommand}"/>
+                <Button IsVisible="{Binding TaskColorButtons[1].IsVisible}"
+                        BackgroundColor="{Binding TaskColorButtons[1].Color}" 
+                        CornerRadius="15"
+                        MinimumHeightRequest="10"
+                        MinimumWidthRequest="10"
+                        HeightRequest="30"
+                        WidthRequest="30"
+                        CommandParameter="{Binding TaskColorButtons[1]}" 
+                        Command="{Binding ColorButtonClickedCommand}"/>
+                <Button IsVisible="{Binding TaskColorButtons[2].IsVisible}"
+                        BackgroundColor="{Binding TaskColorButtons[2].Color}" 
+                        CornerRadius="15"
+                        MinimumHeightRequest="10"
+                        MinimumWidthRequest="10"
+                        HeightRequest="30"
+                        WidthRequest="30"
+                        CommandParameter="{Binding TaskColorButtons[2]}" 
+                        Command="{Binding ColorButtonClickedCommand}"/>
+                <Button IsVisible="{Binding TaskColorButtons[3].IsVisible}"
+                        BackgroundColor="{Binding TaskColorButtons[3].Color}" 
+                        CornerRadius="15"
+                        MinimumHeightRequest="10"
+                        MinimumWidthRequest="10"
+                        HeightRequest="30"
+                        WidthRequest="30"
+                        CommandParameter="{Binding TaskColorButtons[3]}" 
+                        Command="{Binding ColorButtonClickedCommand}"/>
+                <Button IsVisible="{Binding TaskColorButtons[4].IsVisible}"
+                        BackgroundColor="{Binding TaskColorButtons[4].Color}" 
+                        CornerRadius="15"
+                        MinimumHeightRequest="10"
+                        MinimumWidthRequest="10"
+                        HeightRequest="30"
+                        WidthRequest="30"
+                        CommandParameter="{Binding TaskColorButtons[4]}" 
+                        Command="{Binding ColorButtonClickedCommand}"/>
+                <Button IsVisible="{Binding TaskColorButtons[5].IsVisible}"
+                        BackgroundColor="{Binding TaskColorButtons[5].Color}" 
+                        CornerRadius="15"
+                        MinimumHeightRequest="10"
+                        MinimumWidthRequest="10"
+                        HeightRequest="30"
+                        WidthRequest="30"
+                        CommandParameter="{Binding TaskColorButtons[5]}" 
+                        Command="{Binding ColorButtonClickedCommand}"/>
+            </HorizontalStackLayout>
+            <Entry Placeholder="Description"
+                   TextColor="White"
+                   Text="{Binding TaskDto.Description}"/>
+            <HorizontalStackLayout>
+                <Label Text="Notification:" 
+                       TextColor="White" 
+                       Background="{StaticResource EerieBlack}" 
+                       HorizontalOptions="Start"
+                       VerticalOptions="Start"/>
+                <CollectionView ItemsSource="{Binding TimeListItems}" 
+                                Background="{StaticResource EerieBlack}" 
+                                HeightRequest="77.08"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Start">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="x:TimeSpan">
+                            <Button Text="{Binding StringFormat='{0:hh\\:mm}'}"
+                                    TextColor="White"
+                                    Background="{StaticResource EerieBlack}"
+                                    MinimumHeightRequest="10"
+                                    MinimumWidthRequest="10"
+                                    HeightRequest="19.27"
+                                    Padding="0"
+                                    CommandParameter="{Binding .}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:TaskPopupViewModel}}, Path=NotificationButtonClickedCommand}"/>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Button Text="Cancel"
+                        TextColor="White"
+                        Background="{StaticResource Jet}"
+                        CommandParameter="{x:Reference TaskPopupPage}"
+                        Command="{Binding CancelTaskCommand}"/>
+                <Button Text="Save"
+                        TextColor="White"
+                        Background="{StaticResource LightSkyBlue}"
+                        CommandParameter="{x:Reference TaskPopupPage}"
+                        Command="{Binding SaveTaskCommand}"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </Grid>
+</toolkit:Popup>

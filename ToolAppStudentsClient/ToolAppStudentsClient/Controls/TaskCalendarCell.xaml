@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class=" ToolAppStudentsClient.Controls.TaskCalendarCell">
+    <Grid x:Name="cellGrid"
+          RowDefinitions="0*,1*,0*"
+          ColumnDefinitions="0*,1*,0*"
+          Background="Transparent"
+          InputTransparent="True"
+          CascadeInputTransparent="False">
+        <Button x:Name="cellButton"
+                Grid.Row="1"
+                Grid.Column="1"
+                BackgroundColor="{Binding TaskColor, Mode=TwoWay}"
+                Padding="0"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"
+                MinimumHeightRequest="0"
+                CornerRadius="5"
+                InputTransparent="False"
+                BorderColor="{StaticResource EerieBlack}"
+                BorderWidth="1"
+                Command="{Binding HandleTaskButtonCommand}">
+        </Button>
+        <VerticalStackLayout Grid.Row="1"
+                             Grid.Column="1"
+                             InputTransparent="True"
+                             Spacing="0">
+            <Label x:Name="titleLabel"
+                   IsVisible="True"
+                   TextColor="White"
+                   Text="{Binding Title, Mode=TwoWay}"
+                   FontSize="12"
+                   FontAttributes="Bold"
+                   LineBreakMode="TailTruncation"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"
+                   BackgroundColor="Transparent"
+                   Margin="5,5,0,0"
+                   MinimumHeightRequest="0"
+                   MaximumWidthRequest="90">
+            </Label>
+            <Label x:Name="hoursLabel"
+                   IsVisible="True"
+                   TextColor="White"
+                   FontSize="10"
+                   LineBreakMode="TailTruncation"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"
+                   BackgroundColor="Transparent"
+                   Margin="5,0,0,0"
+                   MinimumHeightRequest="0"
+                   MaximumWidthRequest="90">
+                <Label.Text>
+                    <MultiBinding StringFormat="{}{0}-{1}" Mode="TwoWay">
+                        <Binding Path="StartHour" Mode="TwoWay" />
+                        <Binding Path="EndHour" Mode="TwoWay"/>
+                    </MultiBinding>
+                </Label.Text>
+            </Label>
+            <Label x:Name="locationLabel"
+                   IsVisible="True"
+                   TextColor="White"
+                   Text="{Binding Location, Mode=TwoWay}"
+                   FontSize="10"
+                   LineBreakMode="TailTruncation"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"
+                   BackgroundColor="Transparent"
+                   Margin="5,0,0,0"
+                   MinimumHeightRequest="0"
+                   MaximumWidthRequest="90">
+            </Label>
+            <Label x:Name="descriptionLabel"
+                   IsVisible="True"
+                   TextColor="White"
+                   Text="{Binding Description, Mode=TwoWay}"
+                   FontSize="10"
+                   LineBreakMode="TailTruncation"
+                   HorizontalTextAlignment="Start"
+                   VerticalTextAlignment="Center"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"
+                   BackgroundColor="Transparent"
+                   Margin="5,0,0,0"
+                   MinimumHeightRequest="0"
+                   MaximumWidthRequest="90">
+            </Label>
+        </VerticalStackLayout>
+    </Grid>
+</ContentView>

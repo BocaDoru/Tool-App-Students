@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToolAppStudentsClient.View.WeekCalendar" 
+             xmlns:viewmodel="clr-namespace:ToolAppStudentsClient.ViewModel"
+             x:DataType="viewmodel:WeekCalendarViewModel"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:converters="clr-namespace:ToolAppStudentsClient.Converter"
+             xmlns:models="clr-namespace:ToolAppStudentsClient.Models"
+             xmlns:selector="clr-namespace:ToolAppStudentsClient.Selectors"
+             xmlns:controls="clr-namespace:ToolAppStudentsClient.Controls"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Title="Week"
+             BackgroundColor="{StaticResource Night}">
+    <!--<ContentPage.BindingContext>
+        <viewmodel:WeekCalendarViewModel/>
+    </ContentPage.BindingContext>-->
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:DayOfWeekToColorConverter x:Key="DayToColorConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add task" IconImageSource="add_task.png" Command="{Binding AddButtonCommand}"/>
+    </ContentPage.ToolbarItems>-->
+
+    <ContentPage.ToolbarItems >
+        <ToolbarItem Text="&lt;" Command="{Binding BackButtonCommand}"/>
+        <ToolbarItem Text=">" Command="{Binding NextButtonCommand}"/>
+        <ToolbarItem Text="Add task" Command="{Binding AddButtonCommand}"/>
+    </ContentPage.ToolbarItems>
+    <controls:Calendar NumberOfDays="7"
+                       NumberOfVisibleRows="17"
+                       WeekDays="{Binding WeekDays}"
+                       Dates="{Binding Dates}"
+                       FocusDate="{Binding FocusDate}"
+                       TaskItemsSource="{Binding WeekGridTasks}"
+                       VerticalOptions="FillAndExpand"/>
+</ContentPage>
