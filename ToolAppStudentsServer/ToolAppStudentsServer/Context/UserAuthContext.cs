@@ -8,9 +8,5 @@ namespace ToolAppStudentsServer.Context
         public DbSet<Models.User> Users { get; set; }
         public DbSet<Models.CalendarTask> Tasks { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseMySQL("server=localhost;database=studentsdb;user=root;password=123456789");
-        }
     }
 }
